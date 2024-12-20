@@ -11,8 +11,8 @@ namespace WebApiAssignment1.Models.EntityLayer
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "UserName is required")]
-        [StringLength(20, ErrorMessage = "UserName should not exceed 20 characters")]
+        [Required(ErrorMessage = "Username is required")]
+        [StringLength(25, ErrorMessage = "Username should not exceed 25 characters")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
