@@ -16,7 +16,7 @@ namespace WebApiAssignment1.Models.EntityLayer
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Gender must contain only letters.")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Gender must contain only letters and alphabets.")]
         public string Gender { get; set; }
 
         [Required(ErrorMessage = "Address is required")]
