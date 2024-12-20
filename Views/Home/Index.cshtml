@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApiAssignment1.Models.EntityLayer.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>PATIENT VIEW</h2>
+
+@{
+    if (ViewBag.res != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.res
+        </div>
+    }
+}
+
+
+<p>
+    @Html.ActionLink("INSERT NEW PATIENT", "InsertCust", null, new { @class = " btn btn-success", @style = "margin-top:2rem; margin-bottom:2rem" })
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            <h3>ID</h3>
+        </th>
+        <th>
+            <h3>USERNAME</h3>
+        </th>
+        <th>
+            <h3>GENDER</h3>
+        </th>
+        <th>
+            <h3>ADDRESS</h3>
+        </th>
+        <th>
+            <h3>PHONE</h3>
+        </th>
+        <th>
+            <h3>ACTION</h3>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink("UPDATE", "UpdateCust", new { id = item.Id }, new { @class = "btn btn-warning" })
+                @using (Html.BeginForm("DeleteCust", "Home", new { id = item.Id }, FormMethod.Post, new { @class = "d-inline", id = "deleteForm" + item.Id }))
+                {
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                }
+            </td>
+                
+        </tr>
+     }
+
+</table>
